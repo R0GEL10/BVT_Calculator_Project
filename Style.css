@@ -1,0 +1,71 @@
+             *,
+             *::before,
+             *::after {
+                 box-sizing: border-box;
+                 font-family: 'Franklin Gothic Medium', sans-serif;
+                 font-weight: normal;
+             }
+             
+             body {
+                 padding: 0;
+                 margin: 0;
+                 background: linear-gradient(to right, #d9ff00, #ff3c00);
+             }
+             /*Create grid*/
+             
+             .calculator-grid {
+                 display: grid;
+                 justify-content: center;
+                 align-content: center;
+                 min-height: 100vh;
+                 /* 4 columns- vertical, each block 100px in size*/
+                 grid-template-columns: repeat(4, 100px);
+                 /*5 rows-horizontal, 1st row has minmax to expand block when needed. 5 rows are set to 100px for each block.*/
+                 grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+             }
+             /*Position buttons */
+             
+             .calculator-grid>button {
+                 cursor: pointer;
+                 font-size: 2rem;
+                 border: 1px solid white;
+                 outline: none;
+                 background-color: rgba(255, 255, 255, .75);
+             }
+             
+             .calculator-grid>button:hover {
+                 background-color: rgba(255, 255, 255, .9);
+             }
+             
+             .span-two {
+                 grid-column: span 2;
+             }
+             /* This is for display. Span colum from 1 to -1(last column) to make one whole block.*/
+             
+             .output {
+                 grid-column: 1 / -1;
+                 background-color: rgba(0, 0, 0, .75);
+                 /* Align elements in container using flex */
+                 display: flex;
+                 /* Will display numbers to the right*/
+                 align-items: flex-end;
+                 justify-content: space-around;
+                 /* To line up numbers vertically within the block/display*/
+                 flex-direction: column;
+                 padding: 10px;
+                 /* allows numbers to wrap within block if too long*/
+                 word-wrap: break-word;
+                 word-break: break-all;
+             }
+             /*Style the numbers that will appear on display (previous operand*/
+             
+             .output .previous-operand {
+                 color: rgba(255, 255, 255, .75);
+                 font-size: 1.5rem;
+             }
+             /*Style the numbers that will appear on display (current operand*/
+             
+             .output .current-operand {
+                 color: white;
+                 font-size: 2.5rem;
+             }
